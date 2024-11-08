@@ -1,9 +1,16 @@
 import { useState } from "react"
+import { useGetCatPic } from "../services/CatService"
 
 const CatCard= ()=> {
 const [catKuva, setCatKuva] = useState("")
+
+
+
 const handleOnClick = ()=> {
-    setCatKuva("https://placecats.com/neo/300/200")
+    useGetCatPic()
+    .then((url) => {
+        setCatKuva(url);})
+   
 }
     return (
         <div className="flex items-center flex-col mx-20">
